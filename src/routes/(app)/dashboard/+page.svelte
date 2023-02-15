@@ -1,16 +1,16 @@
-<script lang="ts">
-	import type { PageData } from './$types';
-
-	export let data: PageData;
-	$: ({ testTable, user } = data);
+<script>
+	import { page } from '$app/stores'
+	import Account from './Account.svelte'
+	import Auth from './Auth.svelte'
 </script>
 
-<div class="block">
-	<p>Protected content for {user.email}</p>
-	<p>server-side fetched data with RLS:</p>
-	<pre>{JSON.stringify(testTable, null, 2)}</pre>
-</div>
-<div class="block">
-	<p>user:</p>
-	<pre>{JSON.stringify(user, null, 2)}</pre>
-</div>
+<svelte:head>
+	<title>Supabase + SvelteKit</title>
+	<meta name="description" content="SvelteKit using supabase-js v2" />
+</svelte:head>
+
+{#if !$page.data.session}
+	<Auth />
+{:else}
+	<Account session={$page.data.session} />
+{/if}

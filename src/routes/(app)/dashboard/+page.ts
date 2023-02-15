@@ -1,17 +1,16 @@
-import type { PageLoad } from './$types';
-import { redirect } from '@sveltejs/kit';
-import { getSupabase } from '@supabase/auth-helpers-sveltekit';
+import type { PageLoad } from './$types'
+import { redirect } from '@sveltejs/kit'
+import { getSupabase } from '@supabase/auth-helpers-sveltekit'
 
 export const load: PageLoad = async (event) => {
-	const { session, supabaseClient } = await getSupabase(event);
-	if (!session) {
-		throw redirect(303, '/');
-	}
-
-  // TODO: Get relevant data from Supabase
-	const { data: testTable } = await supabaseClient.from('test').select('*');
-	return {
-		testTable,
-		user: session.user
-	};
-};
+  const { session, supabaseClient } = await getSupabase(event)
+  if (!session) {
+    throw redirect(303, '/')
+  }
+  // todo: get data that matters
+  // const { data: testTable } = await supabaseClient.from('test').select('*')
+  // return {
+  //   testTable,
+  //   user: session.user,
+  // }
+}

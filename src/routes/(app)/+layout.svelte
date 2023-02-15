@@ -25,7 +25,7 @@
 <main class="container is-max-desktop">
 	<div class="navbar-menu my-4">
 		<div class="navbar-start">
-			<a class="my-2" href="/">Supabase Auth Helpers Demo</a>
+			<a class="my-2" href="/">Home</a>
 		</div>
 		<div class="navbar-end">
 			{#if $page.data.session}
