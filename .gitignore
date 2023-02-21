@@ -11,3 +11,4 @@ node_modules
 
 supabase/supabase.md
 .secrets.md
+.sveltekit.md
