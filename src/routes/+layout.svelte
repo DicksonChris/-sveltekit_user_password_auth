@@ -1,48 +1,48 @@
 <script lang="ts">
-  import '../app.postcss'
-  import type { LayoutData } from './$types'
-  import { page } from '$app/stores'
-  import Footer from './Footer.svelte'
-  import Header from './Header.svelte'
-  import debug from 'debug'
+	import '../app.postcss'
+	import type { LayoutData } from './$types'
+	import { page } from '$app/stores'
+	import Footer from './Footer.svelte'
+	import Header from './Header.svelte'
+	import debug from 'debug'
 
-  import { supabaseClient } from '$lib/supabaseClient'
-  import { invalidateAll } from '$app/navigation'
-  import { onMount } from 'svelte'
+	import { supabaseClient } from '$lib/supabaseClient'
+	import { invalidateAll } from '$app/navigation'
+	import { onMount } from 'svelte'
 
-  // This is the root layout which is loaded on every page
-  // This monitors the state of our authentication
-  // If something changes it will invalidate all
-  onMount(() => {
-    const {
-      data: { subscription },
-    } = supabaseClient.auth.onAuthStateChange(() => {
-      invalidateAll()
-    })
+	// This is the root layout which is loaded on every page
+	// This monitors the state of our authentication
+	// If something changes it will invalidate all
+	onMount(() => {
+		const {
+			data: { subscription }
+		} = supabaseClient.auth.onAuthStateChange(() => {
+			invalidateAll()
+		})
 
-    return () => {
-      subscription.unsubscribe()
-    }
-  })
+		return () => {
+			subscription.unsubscribe()
+		}
+	})
 
-  const log = debug('app:routes:layout.svelte')
+	const log = debug('app:routes:layout.svelte')
 
-  export let data: LayoutData
+	export let data: LayoutData
 
-  $: title = $page.data?.title ? $page.data.title + ' | ' : ''
+	$: title = $page.data?.title ? $page.data.title + ' | ' : ''
 
-  $: log('data:', data)
-  $: log('$page.data:', $page.data)
+	$: log('data:', data)
+	$: log('$page.data:', $page.data)
 </script>
 
 <svelte:head>
-  <title>{title}SvelteKit Auth Demo</title>
+	<title>{title}SvelteKit Auth Demo</title>
 </svelte:head>
 
-<Header data={data}/>
+<Header {data} />
 
 <main class="max-w-screen-sm mx-auto my-20 px-6">
-  <slot />
+	<slot />
 </main>
 
-<Footer data={data}/>
+<Footer {data} />
