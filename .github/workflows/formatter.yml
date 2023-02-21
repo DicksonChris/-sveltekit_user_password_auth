@@ -3,7 +3,7 @@ name: Formatter
 on: [push]
 
 jobs:
-  build:
+  format:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
