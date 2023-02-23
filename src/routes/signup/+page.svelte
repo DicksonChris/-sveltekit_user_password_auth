@@ -1,10 +1,22 @@
 <script lang="ts">
 	import { faWarning } from '@fortawesome/free-solid-svg-icons'
 	import Fa from 'svelte-fa'
+	import type { Snapshot } from './$types'
 	import type { ActionData } from './$types'
 
 	export let form: ActionData
 	let loading = false
+
+  let formData = {
+    email: form?.values?.email ?? '',
+    password: '',
+    password_confirm: ''
+  }
+
+  export const snapshot: Snapshot = {
+    capture: () => formData,
+    restore: (value) => (formData = value)
+  }
 </script>
 
 <section class="max-w-sm mx-auto">
@@ -30,8 +42,8 @@
 				name="email"
 				placeholder="Email..."
 				class="input input-bordered w-full"
+        bind:value={formData.email}
 				required
-				value={form?.values?.email ?? ''}
 			/>
 		</p>
 		<p>
@@ -40,6 +52,7 @@
 				name="password"
 				placeholder="Password..."
 				class="input input-bordered w-full"
+        bind:value={formData.password}
 				required
 			/>
 		</p>
@@ -49,6 +62,7 @@
 				name="password_confirm"
 				placeholder="Confirm password..."
 				class="input input-bordered w-full"
+        bind:value={formData.password_confirm}
 				required
 			/>
 		</p>
@@ -58,6 +72,12 @@
 			<a href="/login" class="link">Sign In</a>
 		</p>
 	</form>
+
+	<p>
+		By signing up, you agree to our <a href="/signup/terms" class="link link-secondary"
+			>Terms and Conditions</a
+		>
+	</p>
 
 	{#if form}
 		<section class="my-8">
