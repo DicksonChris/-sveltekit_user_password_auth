@@ -69,7 +69,7 @@
 		<p class="flex items-center gap-6 mt-6">
 			<button disabled={loading} class="btn btn-primary">Sign Up</button>
 			or
-			<a href="/login" class="link">Sign In</a>
+			<a href="/signin" class="link">Sign In</a>
 		</p>
 	</form>
 

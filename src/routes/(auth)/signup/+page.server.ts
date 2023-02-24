@@ -11,13 +11,10 @@ export const actions: Actions = {
 	}): Promise<
 		ActionFailure<{ error: string; values?: { email: string } }> | { message: string }
 	> => {
-		const body = Object.fromEntries(await request.formData())
-
-		const email = body.email as string
-		const password = body.password as string
-		const password_confirm = body.password_confirm as string
-
-		console.log(password, password_confirm)
+		const formData = await request.formData()
+		const email = formData.get('email') as string
+		const password = formData.get('password') as string
+		const password_confirm = formData.get('password_confim') as string
 
 		// Check for any form validation errors
 		if (!email) {
@@ -73,7 +70,7 @@ export const actions: Actions = {
 		}
 
 		return {
-			message: 'Please check your email for a magic link to log into the website.'
+			message: 'Success! Check your email for a confirmation link.'
 		}
 	}
 }

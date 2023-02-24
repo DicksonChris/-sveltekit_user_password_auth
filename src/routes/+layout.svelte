@@ -4,8 +4,8 @@
 	import { page } from '$app/stores'
 	import Footer from './Footer.svelte'
 	import Header from './Header.svelte'
-	import debug from 'debug'
-
+  import { APP_NAME } from '$lib/strings/constants'
+  
 	import { supabaseClient } from '$lib/supabaseClient'
 	import { invalidateAll } from '$app/navigation'
 	import { onMount } from 'svelte'
@@ -25,18 +25,14 @@
 		}
 	})
 
-	const log = debug('app:routes:layout.svelte')
 
 	export let data: LayoutData
 
 	$: title = $page.data?.title ? $page.data.title + ' | ' : ''
-
-	$: log('data:', data)
-	$: log('$page.data:', $page.data)
 </script>
 
 <svelte:head>
-	<title>{title}SvelteKit Auth Demo</title>
+	<title>{title}{APP_NAME}</title>
 </svelte:head>
 
 <Header {data} />

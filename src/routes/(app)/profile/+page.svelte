@@ -26,7 +26,7 @@
 		</li>
 		<li>
 			<!-- Use data-sveltekit-reload to prevent client-side navigation and force a reload of the page -->
-			<a data-sveltekit-reload href="/logout" class="link">Log Out</a> - Clears the user's token and
+			<a data-sveltekit-reload href="/signout" class="link">Log Out</a> - Clears the user's token and
 			redirects them back to the homepage.
 		</li>
 	</ul>

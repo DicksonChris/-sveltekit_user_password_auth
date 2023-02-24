@@ -3,14 +3,14 @@
 Homepage
 if auth
 show button "go to profile/activities"
-(logout in nav)
+(signout in nav)
 else
 show buttons
-[/login, /signup]
+[/signin, /signup]
 
-# logout
+# signout
 
-/logout
+/signout
 remove auth
 redirect to '/'
 
@@ -23,14 +23,14 @@ else
 signs up using page.server.ts form actions...
 (Major changes needed. Currently uses cookies(?) and signs in immediately upon signup)
 
-# login
+# signin
 
-/login
+/signin
 if auth
 redirect to '/'
 else
-login page with forms
-redirect to /profile on login
+signin page with forms
+redirect to /profile on signin
 
 # api
 

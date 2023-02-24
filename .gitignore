@@ -12,3 +12,5 @@ node_modules
 supabase/supabase.md
 .secrets.md
 .sveltekit.md
+src/routes/api.md
+supabase/db_setup/create_profiles.sql
