@@ -13,6 +13,8 @@
 		"clean:all": "rimraf .svelte-kit node_modules"
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^17.4.4",
+		"@commitlint/config-conventional": "^17.4.4",
 		"@fortawesome/free-solid-svg-icons": "^6.3.0",
 		"@sveltejs/adapter-auto": "^1.0.0",
 		"@sveltejs/kit": "^1.8.3",
@@ -26,6 +28,7 @@
 		"eslint": "^8.31.0",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"husky": "^8.0.3",
 		"postcss": "^8.4.21",
 		"prettier": "^2.8.1",
 		"prettier-plugin-svelte": "^2.9.0",
