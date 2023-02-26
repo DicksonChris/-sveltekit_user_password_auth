@@ -1,6 +1,7 @@
 /// <reference types="@sveltejs/kit" />
 
 import type { TypedSupabaseClient } from '@supabase/auth-helpers-sveltekit'
+import type { AuthSession } from '@supabase/supabase-js'
 
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
@@ -14,7 +15,7 @@ declare global {
 		}
 		interface Locals {
 			sb: TypedSupabaseClient
-			session: Session | null
+			session: AuthSession | null
 		}
 		interface PageData {
 			session: import('@supabase/supabase-js').Session | null
