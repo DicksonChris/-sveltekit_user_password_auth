@@ -15,3 +15,5 @@ supabase/supabase.md
 .sveltekit.md
 src/routes/api.md
 supabase/db_setup/create_profiles.sql
+static/app.css
+.vscode
