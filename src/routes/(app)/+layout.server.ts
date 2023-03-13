@@ -5,7 +5,7 @@ import type { LayoutServerLoad } from './$types'
 // Or implement their own authentication
 // Failing to do this will allow users with expired sessions to access the page
 export const load = (({ locals }) => {
-  if (!locals.session) {
-    throw redirect(307, '/signin')
-  }
+	if (!locals.session) {
+		throw redirect(307, '/signin')
+	}
 }) satisfies LayoutServerLoad

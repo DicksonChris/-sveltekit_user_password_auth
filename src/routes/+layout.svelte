@@ -4,8 +4,8 @@
 	import { page } from '$app/stores'
 	import Footer from './Footer.svelte'
 	import Header from './Header.svelte'
-  import { APP_NAME } from '$lib/strings/constants'
-  
+	import { APP_NAME } from '$lib/strings/constants'
+
 	import { supabaseClient } from '$lib/supabaseClient'
 	import { invalidateAll } from '$app/navigation'
 	import { onMount } from 'svelte'
@@ -24,7 +24,6 @@
 			subscription.unsubscribe()
 		}
 	})
-
 
 	export let data: LayoutData
 

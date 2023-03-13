@@ -2,9 +2,9 @@
 import '$lib/supabaseClient'
 
 export const handleError = (error: Error) => {
-  console.error('client error:', error)
-  return {
-    status: 500,
-    body: error.message
-  }
+	console.error('client error:', error)
+	return {
+		status: 500,
+		body: error.message
+	}
 }

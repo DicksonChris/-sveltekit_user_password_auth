@@ -1,26 +1,26 @@
 <script>
-	import { onMount } from 'svelte';
-	import { tweened } from 'svelte/motion';
-	import { cubicOut } from 'svelte/easing';
+	import { onMount } from 'svelte'
+	import { tweened } from 'svelte/motion'
+	import { cubicOut } from 'svelte/easing'
 
-  // TODO: Replace with custom loading animation
+	// TODO: Replace with custom loading animation
 
 	const width = tweened(0, {
 		duration: 1e3,
 		easing: cubicOut
-	});
+	})
 
 	async function animate() {
 		// inch along until 90% complete
 		// ~> wait for loading=false signal
-		let jump = (Math.random() * 20 + 4) | 0;
-		width.update((val) => Math.min(90, val + jump));
+		let jump = (Math.random() * 20 + 4) | 0
+		width.update((val) => Math.min(90, val + jump))
 	}
 
 	onMount(() => {
-		const interval = setInterval(animate, 750);
-		return () => clearInterval(interval);
-	});
+		const interval = setInterval(animate, 750)
+		return () => clearInterval(interval)
+	})
 </script>
 
 <div class="top-0 left-0 z-10 block w-full h-full bg-transparent">
