@@ -1,8 +1,8 @@
 <script lang="ts">
-	let className = '';
-	export { className as class };
+	let className = ''
+	export { className as class }
 </script>
 
-<div class="alert {className} shadow-lg rounded-none">
+<div role="alert" class="alert {className} shadow-lg rounded-md">
 	<slot />
 </div>
