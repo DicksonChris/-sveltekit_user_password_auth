@@ -7,11 +7,11 @@
 
 <section class="prose">
 	<h1>profile</h1>
+	<!-- Used in playwright tests -->
 	<p>🎉 Hello there <strong>{session?.user?.email}</strong>, you're logged in!</p>
 	<ul>
 		<li><a href="/settings">Settings</a> - Another authenticated route.</li>
 		<li>
-			<!--  -->
 			<a href="/api/me" target="_blank"><code>/api/me</code></a> to get your user data in an
 			authenticated API request.
 			<ul>
@@ -26,8 +26,8 @@
 		</li>
 		<li>
 			<!-- Use data-sveltekit-reload to prevent client-side navigation and force a reload of the page -->
-			<a data-sveltekit-reload href="/signout" class="link">Log Out</a> - Clears the user's token and
-			redirects them back to the homepage.
+			<a data-sveltekit-reload href="/#" class="link">Log Out</a> - Clears the user's token and redirects
+			them back to the homepage.
 		</li>
 	</ul>
 </section>
