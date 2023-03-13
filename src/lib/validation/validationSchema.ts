@@ -67,13 +67,11 @@ export const signInSchema = z
         path: ['password'],
       })
     }
-  }
-  )
-
-export const forgotPasswordSchema = z
-  .object({
-    email: emailSchema,
   })
+
+export const forgotPasswordSchema = z.object({
+  email: emailSchema,
+})
 
 export const updatePasswordSchema = z
   .object({
@@ -94,5 +92,3 @@ export const updatePasswordSchema = z
       })
     }
   })
-
-
